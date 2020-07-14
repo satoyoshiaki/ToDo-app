@@ -1,23 +1,24 @@
 <h1>やること一覧</h1>
-<table class="table table-bordered">
-  <tr>
-    <th>タスク</th>
-    <th>重要度</th>
-    <th>期限</th>
-    <th></th>
-    <th></th>
-  </tr>
-<% @tasks.each do |task| %>
-  <tr>
-    <% if task.user_id == current_user.id %>
-      <td><%= task.title %></td>
-      <td><%= task.importance %></td>
-      <td><%= task.deadline %></td>
-      <td><%= link_to '詳細', task_path(task.id), class:"btn btn-secondary"%></td>
-      <td class = "size"><%= link_to fa_icon("trash"), task_path(task.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
-    <% end %>
-  </tr>
-<% end %>
-</table>
-<%= link_to 'やることを追加する', new_task_path, class:"btn btn-primary" %>
-<p class = "aaaa">aaaa</p>
+<div class = "tyuo">
+  <table class="table table-bordered ">
+    <tr>
+      <th>タスク</th>
+      <th>重要度</th>
+      <th>期限</th>
+      <th></th>
+      <th></th>
+    </tr>
+  <% @tasks.each do |task| %>
+    <tr>
+      <% if task.user_id == current_user.id %>
+        <td><%= task.title %></td>
+        <td class = "task-center"><%= task.importance %></td>
+        <td class = "task-center"><%= task.deadline %></td>
+        <td><%= link_to '詳細', task_path(task.id), class:"btn btn-secondary"%></td>
+        <td class = "size"><%= link_to fa_icon("trash"), task_path(task.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </table>
+  <%= link_to 'やることを追加する', new_task_path, class:"btn btn-primary" %>
+<div>
