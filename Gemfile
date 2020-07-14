@@ -70,3 +70,6 @@ gem 'devise'
 
 gem 'devise-i18n'
 #日本語翻訳
+
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
