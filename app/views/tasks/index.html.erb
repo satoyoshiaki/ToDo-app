@@ -13,7 +13,7 @@
       <td><%= task.title %></td>
       <td><%= task.importance %></td>
       <td><%= task.deadline %></td>
-      <td><%= link_to '詳細', task_path(task.id) %></td>
+      <td><%= link_to '詳細', task_path(task.id), class:"btn btn-secondary"%></td>
       <td><%= link_to fa_icon("trash"), task_path(task.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
     <% end %>
   </tr>

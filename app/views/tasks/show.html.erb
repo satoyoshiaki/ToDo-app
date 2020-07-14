@@ -5,5 +5,5 @@
 <p>期限: <%= @task.deadline %></p>
 <p>重要度: <%= @task.importance %></p>
 <p>写真: <%= @task.image %></p>
-<%= link_to "編集", edit_task_path(@task.id) %>
+<%= link_to fa_icon("edit"), edit_task_path(@task.id) %>
 <td><%= link_to fa_icon("trash"), task_path(@task.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
