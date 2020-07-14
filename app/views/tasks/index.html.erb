@@ -6,12 +6,14 @@
   </tr>
 <% @tasks.each do |task| %>
   <tr>
-    <td><%= task.title %></td>
-    <td><%= task.importance %></td>
-    <td><%= task.deadline %></td>
-    <td><%= link_to '詳細を確認する', task_path(task.id) %></td>
-    <td><%= link_to "ブログを編集する", edit_task_path(task.id) %></td>
-    <td><%= link_to '削除', task_path(task.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+    <% if task.user_id == current_user.id %>
+      <td><%= task.title %></td>
+      <td><%= task.importance %></td>
+      <td><%= task.deadline %></td>
+      <td><%= link_to '詳細を確認する', task_path(task.id) %></td>
+      <td><%= link_to "ブログを編集する", edit_task_path(task.id) %></td>
+      <td><%= link_to '削除', task_path(task.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
