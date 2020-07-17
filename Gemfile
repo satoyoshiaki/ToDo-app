@@ -76,3 +76,7 @@ gem 'jquery-rails'
 
 gem "font-awesome-rails"
 #マーク
+
+gem 'carrierwave'
+gem 'mini_magick'
+#画像
