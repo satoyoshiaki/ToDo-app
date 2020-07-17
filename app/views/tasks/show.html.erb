@@ -1,11 +1,15 @@
 <h1>詳細画面</h1>
 <div class="border border-dark rounded tyuo-show">
+<div class = "tyuo-show2">
     <p>タイトル: <%= @task.title %></p>
-    <p>リンク: <%= @task.rink %></p>
-    <p>内容: <%= @task.content %></p>
+    <% unless @task.rink.blank? %>
+        <p>リンク: <%= @task.rink %></p>
+    <% end %>
     <p>期限: <%= @task.deadline %></p>
     <p>重要度: <%= @task.importance %></p>
+    <p>内容: <%= @task.content %></p>
     <p>写真: <%= @task.image %></p>
     <%= link_to fa_icon("edit"), edit_task_path(@task.id) %>
     <%= link_to fa_icon("trash"), task_path(@task.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+</div>
 </div>
