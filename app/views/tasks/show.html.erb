@@ -7,11 +7,15 @@
     <% end %>
     <p>期限: <%= @task.deadline %></p>
     <p>重要度: <%= @task.importance %></p>
-    <p>内容: <%= @task.content %></p>
+    <% unless @task.content.blank? %>
+        <p>内容: <%= @task.content %></p>
+    <% end %>
     <% unless @task.image.blank? %>
         <p>写真: <%= @task.image %></p>
     <% end %>
+    <div class = "show-right">
     <%= link_to fa_icon("edit"), edit_task_path(@task.id) %>
     <%= link_to fa_icon("trash"), task_path(@task.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+    </div>
 </div>
 </div>
