@@ -2,6 +2,17 @@ class TasksController < ApplicationController
     before_action :set_task, only: [:show, :edit, :update, :destroy]
     def index
       @tasks = Task.all.order(id: "DESC")
+
+      if params[:search].present?
+        if params[:title].present? and params[:importance].present?
+          @tasks = @tasks.title_search params[:title]
+          @tasks = @tasks.importance_search params[:importance]
+        elsif params[:title].present?
+          @tasks = @tasks.title_search params[:title]
+        elsif params[:importance].present?
+          @tasks = @tasks.importance_search params[:importance]
+        end
+      end
     end
     def new
       @task = Task.new
