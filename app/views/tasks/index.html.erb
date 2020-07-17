@@ -1,5 +1,17 @@
 <h1>やること一覧</h1>
+
 <div class = "tyuo">
+
+  <%= form_with url: tasks_path, method: :get, local: true do |form| %>
+    <%= form.label :title, "やること" %>
+    <%= form.text_field :title, class: "form-control" %>
+    <%= form.label :importance, "重要度で検索" %>
+    <%= form.select :importance, ["高","中","低"],{include_blank:"選択"}, { id: "search_status", class: "form-control" } %>
+
+    <%= form.hidden_field :search, value:"true" %>
+    <%= form.submit name="検索する" %>
+  <% end %>
+
   <table class="table table-bordered ">
     <tr>
       <th class = "task-center">タスク</th>
