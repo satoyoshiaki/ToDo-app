@@ -3,7 +3,6 @@ class CreateLabellings < ActiveRecord::Migration[5.2]
     create_table :labellings do |t|
       t.references :task, foreign_key: true
       t.references :label, foreign_key: true
-
       t.timestamps
     end
   end
