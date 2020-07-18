@@ -12,6 +12,9 @@
     <%= form.submit name="検索する" %>
   <% end %>
 
+  <%= link_to "期限順", tasks_path(sort_deadline: "true"), class: "btnset1" %>
+  <%= link_to "重要度順", tasks_path(sort_importance: "true"), class: "btnset2" %>
+
   <table class="table table-bordered ">
     <tr>
       <th class = "task-center">タスク</th>
