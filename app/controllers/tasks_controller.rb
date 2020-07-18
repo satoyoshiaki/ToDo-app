@@ -3,6 +3,13 @@ class TasksController < ApplicationController
     def index
       @tasks = Task.all.order(id: "DESC")
 
+      if params[:sort_deadline]
+        @tasks = Task.all.order(deadline: "DESC")
+      end
+      if params[:sort_importance]
+        @tasks = Task.all.order(importance: "DESC")
+      end
+
       if params[:search].present?
         if params[:title].present? and params[:importance].present?
           @tasks = @tasks.title_search params[:title]
