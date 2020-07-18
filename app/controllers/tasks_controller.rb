@@ -4,11 +4,17 @@ class TasksController < ApplicationController
       @tasks = Task.all.order(id: "DESC")
 
       if params[:sort_deadline]
-        @tasks = Task.all.order(deadline: "DESC")
+        @tasks = Task.all.order(deadline: "ASC")
       end
       if params[:sort_importance]
-        @tasks = Task.all.order(importance: "DESC")
+        @tasks = Task.all.order(importance: "ASC")
       end
+      if params[:sort_importance1]
+        require "date"
+        @tasks = Task.where(importance: Date.today)
+      end
+
+
 
       if params[:search].present?
         if params[:title].present? and params[:importance].present?
