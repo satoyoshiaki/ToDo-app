@@ -25,6 +25,7 @@
       <th class = "task-center">期限</th>
       <th></th>
       <th></th>
+      <th class = "task-center">ラベル</th>
     </tr>
   <% @tasks.each do |task| %>
     <tr>
@@ -34,7 +35,7 @@
         <td class = "task-center"><%= task.deadline %></td>
         <td><%= link_to '詳細', task_path(task.id), class:"btn btn-secondary"%></td>
         <td class = "size"><%= link_to fa_icon("trash"), task_path(task.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
-        <td>
+        <td class = "task-center">
         <% task.labels.each do |label| %>
           <%= label.name %>
         <% end %>
