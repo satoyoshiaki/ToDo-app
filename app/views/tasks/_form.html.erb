@@ -11,33 +11,34 @@
     </div>
     <% end %>
     <div class="task_title">
-      <%= form.label :title %>
+      <%= form.label :やること %>
       <%= form.text_field :title, class: "form-control" %>
     </div>
     <div class="task_rink">
-    <%= form.label :rink %>
+    <%= form.label :リンク %>
     <%= form.text_field :rink, class: "form-control" %>
     </div>
     <div class="task_content">
-      <%= form.label :content %>
+      <%= form.label :詳細 %>
       <%= form.text_area :content, class: "form-control" %>
     </div>
     <div class="task_deadline">
-    <%= form.label :deadline %>
+    <%= form.label :期限 %>
     <%= form.date_field :deadline, class: "form-control" %>
     </div>
     <div class="task_importance">
-    <%= form.label :importance %>
+    <%= form.label :重要度 %>
     <%= form.select :importance, ['高', '中', '低'] %>
     </div>
     <div class="task_image">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
+    <%= form.label :写真 %>
+    <%= form.file_field :image, class:"btn btn-secondary" %>
     </div>
     <div class="field">
+    <%= form.label :タグ %>
     <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
     </div>
-    <%= form.submit %>
+    <%= form.submit "作成", class:"btn btn-primary" %>
 <% end %>
 <%= link_to "一覧画面にもどる", tasks_path,class:"btn btn-secondary" %>
 </div>
