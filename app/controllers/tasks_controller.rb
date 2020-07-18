@@ -9,10 +9,6 @@ class TasksController < ApplicationController
       if params[:sort_importance]
         @tasks = Task.all.order(importance: "ASC")
       end
-      if params[:sort_importance1]
-        require "date"
-        @tasks = Task.where(importance: Date.today)
-      end
 
 
 

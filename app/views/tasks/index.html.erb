@@ -1,4 +1,7 @@
 <h1>やること一覧</h1>
+<% require "date" %>
+<h4>今日は<%= Date.today %>です！</h4>
+
 
 <div class = "tyuo">
 
@@ -9,12 +12,11 @@
     <%= form.select :importance, ["高","中","低"],{include_blank:"選択"}, { id: "search_status", class: "form-control" } %>
 
     <%= form.hidden_field :search, value:"true" %>
-    <%= form.submit name="検索する" %>
+    <%= form.submit name="検索する", class:"btn btn-success" %>
   <% end %>
 
   <%= link_to "期限順▼", tasks_path(sort_deadline: "true"), class: "btn btn-secondary btnset1" %>
   <%= link_to "重要度順▼", tasks_path(sort_importance: "true"), class: "btn btn-secondary btnset2" %>
-  <%= link_to "今日やること", tasks_path(sort_importance1: "true"), class: "btn btn-secondary btnset3" %>
 
   <table class="table table-bordered ">
     <tr>
