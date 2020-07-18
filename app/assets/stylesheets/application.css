@@ -55,3 +55,7 @@
 .show-right {
     text-align: right;
 }
+
+body {
+    margin: 0px;
+}
