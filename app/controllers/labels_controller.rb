@@ -24,7 +24,7 @@ class LabelsController < ApplicationController
   # POST /labels
   # POST /labels.json
   def create
-    @label = Label.new(label_params)
+    @label = current_user.labels.build(label_params)
 
       if @label.save
         redirect_to labels_path
