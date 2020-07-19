@@ -1,8 +1,8 @@
 
 
 <h1>ラベル一覧</h1>
-
-<table>
+<div class = "tyuo2">
+<table class="table table-bordered ">
   <thead>
     <tr>
       <th>ラベル</th>
@@ -14,8 +14,8 @@
     <% @labels.each do |label| %>
       <tr>
         <td><%= label.name %></td>
-        <td><%= link_to 'Edit', edit_label_path(label) %></td>
-        <td><%= link_to 'Destroy', label, method: :delete, data: { confirm: '本当に削除しても宜しいでしょうか？' } %></td>
+        <td><%= link_to fa_icon("edit"), edit_label_path(label.id) %></td>
+        <td><%= link_to fa_icon("trash"), label, method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -23,4 +23,5 @@
 
 <br>
 
-<%= link_to 'ラベル作成', new_label_path %>
+<%= link_to 'ラベル作成', new_label_path, class:"btn btn-primary" %>
+</div>
