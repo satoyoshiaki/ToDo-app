@@ -1,3 +1,4 @@
+<div class = "tyuo">
 <%= form_with(model: label, local: true) do |form| %>
   <% if label.errors.any? %>
     <div id="error_explanation">
@@ -12,11 +13,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :ラベル %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "作成", class:"btn btn-primary" %>
   </div>
 <% end %>
+</div>

@@ -26,15 +26,11 @@ class LabelsController < ApplicationController
   def create
     @label = Label.new(label_params)
 
-    respond_to do |format|
       if @label.save
-        format.html { redirect_to @label, notice: 'Label was successfully created.' }
-        format.json { render :show, status: :created, location: @label }
+        redirect_to labels_path
       else
-        format.html { render :new }
-        format.json { render json: @label.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
   end
 
   # PATCH/PUT /labels/1
